@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
-export default function customSelect() {
+export default function customSelect({value, index, onChange}) {
   const optionList = [
     { category: "Wheat", name: "Emmer" },
     { category: "Wheat", name: "Spelt" },
@@ -77,9 +77,12 @@ export default function customSelect() {
     <Autocomplete
       id="grouped-crops"
       options={optionList}
+      value={value}
+      onChange={(e,value) => onChange(index, value)}
       groupBy={(option) => option.category}
       getOptionLabel={(option) => option.name}
-      sx={{ width: "100%", marginTop: '4px' }}
+      isOptionEqualToValue={(option, value) => option.name === value.name}
+      sx={{ width: "100%", marginTop: '8px' }}
       renderInput={(params) => (
         <TextField {...params} hiddenLabel fullWidth size="small" />
       )}
