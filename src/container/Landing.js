@@ -6,7 +6,7 @@ export default function Landing() {
   let navigate = useNavigate();
 
   return (
-    <div className="bg-right bg-[url('../public/images/Farmer.png')] bg-contain bg-no-repeat">
+    <div className="h-[100vh] bg-right bg-[url('../public/images/Farmer.png')] bg-contain bg-no-repeat">
         <div className="w-[60%] pl-[10%] py-[8%]">
             <h1 className="text-8xl font-bold mb-4">
                 Get Access to a Larger Market.
