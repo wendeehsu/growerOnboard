@@ -9,6 +9,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 export default function Signup({startStage = 0}) {
   const [crops, setCrops] = useState([null]);
   const [stage, setStage] = useState(startStage);
+  const [showTest, setShowTest] = useState(false);
 
   const addCrop = () => {
     let newCrops = [...crops];
@@ -22,9 +23,13 @@ export default function Signup({startStage = 0}) {
     setCrops(newCrops)
   }
 
-  const removeCrop = (crop) => {
-    let newCrops = crops.filter((c) => c.name !== crop.name);
+  const removeCrop = (index) => {
+    let newCrops = crops.filter((c,i) => index !== i);
     setCrops(newCrops);
+  }
+
+  const updateShowTest = (show) => {
+    setShowTest(show);
   }
 
   return (
@@ -56,12 +61,12 @@ export default function Signup({startStage = 0}) {
                 <IconButton
                   key={`delIcon-${i}`}
                   aria-label="delete"
-                  onClick={() => removeCrop(crop, i)}
+                  onClick={() => removeCrop(i)}
                   disabled={crops.length <= 1}>
                   <DeleteIcon />
                 </IconButton>
               </div>
-              {/* { stage === 1 && */
+              { stage === 1 &&
                   <>
                     <Dropdown
                       key={`method-${i}`}
@@ -86,7 +91,16 @@ export default function Signup({startStage = 0}) {
                         options={["acre"]}
                       />
                     </div>
-                    <Checkbox label="I have grain test(s)" />
+                    <Checkbox
+                      label="I have grain test(s)"
+                      onChange={updateShowTest}
+                    />
+                    {
+                      showTest && <TextField />
+                    }
+                    { i !== crops.length - 1 &&
+                      <hr className="my-8 border-lime-600 border-2"/>
+                    }
                   </>
               }
             </>
