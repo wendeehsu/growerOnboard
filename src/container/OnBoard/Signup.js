@@ -6,9 +6,8 @@ import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-export default function Signup({startStage = 0}) {
+export default function Signup({stage, onStageChange}) {
   const [crops, setCrops] = useState([null]);
-  const [stage, setStage] = useState(startStage);
   const [showTest, setShowTest] = useState(false);
 
   const addCrop = () => {
@@ -119,9 +118,9 @@ export default function Signup({startStage = 0}) {
           sx={{margin: '16px auto', display: 'flex', borderRadius: '40px', textTransform: 'none'}}
           variant="contained"
           color="success"
-          onClick={() => setStage(1)}
+          onClick={() => onStageChange(stage+1)}
           endIcon={<ArrowForwardIcon />}>
-          Sign Up
+          { stage === 0? "Sign Up" : "Continue" }
       </Button>
     </div>
   );
