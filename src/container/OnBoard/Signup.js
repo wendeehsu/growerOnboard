@@ -1,4 +1,4 @@
-import { TextField, CropDropdown, Dropdown } from "../../components";
+import { TextField, CropDropdown, Dropdown, Checkbox } from "../../components";
 import { useState, useEffect } from "react";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -86,6 +86,7 @@ export default function Signup({startStage = 0}) {
                         options={["acre"]}
                       />
                     </div>
+                    <Checkbox label="I have grain test(s)" />
                   </>
               }
             </>
