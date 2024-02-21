@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 import Signup from './Signup';
+import CropDetail from "./CropDetail";
 
 export default function OnBoard() {
-    // basic crops
+    // v basic crops
     // detailed crops
     // account detail
     // thank you
@@ -18,7 +19,8 @@ export default function OnBoard() {
                     src="../../images/logo-name.png"
                     alt="logo"
                 />
-                <Signup />
+                <Signup stage={0}/>
+                {/* <CropDetail /> */}
             </div>
         </div>
     )

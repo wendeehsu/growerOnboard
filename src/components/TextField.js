@@ -2,8 +2,8 @@ import TextField from "@mui/material/TextField";
 
 export default function customTextField({label, isRequired, fullWidth= true}) {
     return (
-        <>
-            {label && <p className="mb-1">{label}</p> }
+        <div>
+            {label && <p className="mt-2 mb-1">{label}</p> }
             <TextField
                 hiddenLabel
                 required={isRequired}
@@ -11,6 +11,6 @@ export default function customTextField({label, isRequired, fullWidth= true}) {
                 size="small"
                 variant="outlined"
             />
-        </>
+        </div>
     )
 }

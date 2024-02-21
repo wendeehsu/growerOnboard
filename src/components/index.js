@@ -1,7 +1,9 @@
 import TextField from './TextField';
-import CropDropdown from './Dropdown';
+import CropDropdown from './AutoComplete';
+import Dropdown from './Dropdown';
 
 export {
     TextField,
-    CropDropdown
+    CropDropdown,
+    Dropdown
 };
